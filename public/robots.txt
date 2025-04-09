@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://web.boldhug.krishcode264.code/sitemap.xml
