@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     "event finder",
     "BoldHug",
   ],
+  
  
   openGraph: {
     title: "BoldHug – Discover & Share Local Events",
@@ -53,8 +54,8 @@ export const metadata: Metadata = {
     images: ["./pre.png"],
   },
   icons: {
-    icon: "./../icon2.png",
-    apple: "./../icon2.png",
+    icon: "/icon2.png",
+    apple: "/icon2.png",
   },
 };
 
