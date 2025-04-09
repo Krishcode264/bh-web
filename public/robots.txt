@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://boldhug-web.vercel.app/sitemap.xml
+Sitemap: https://web.boldhug.krishcode264.online/sitemap.xml
