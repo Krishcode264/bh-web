@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BoldHug – Share Events & Meet People",
+  title: "BoldHug –  Find Companions for the Things You Love",
   description:
-    "BoldHug lets you find and create local events. Connect with people for sports, travel, food, and social hangouts.",
+    "BoldHug lets you Create personal plans and find real people to enjoy them with. Connect with people for sports, travel, food, and social hangouts.",
   keywords: [
     "event sharing app",
     "find people for activities",
