@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     "social app",
     "event finder",
     "BoldHug",
+    "find companions , friends for activities app"
   ],
   
  
@@ -71,6 +72,20 @@ export default function RootLayout({
     <html lang="en">
      <head>
      <meta name="description" content="Bold Hug is your go-to app to create and join real-life events. Whether it's travel, social meetups, or hobbies – find your people and share your moments." />
+     <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Bold Hug",
+            "url": "https://web.boldhug.krishcode264.online",
+            "description": "Find companions for events and activities. Meet new people for socializing, biking, traveling, and more!",
+            "applicationCategory": "Social",
+            "operatingSystem": "iOS, Android",
+            "downloadUrl": "https://play.google.com/store/apps/details?id=com.boldhug"
+          }
+        `}
+        </script>
      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
