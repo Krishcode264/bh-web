@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "BoldHug lets you Create personal plans and find real people to enjoy them with. Connect with people for sports, travel, food, and social hangouts.",
   keywords: [
     "event sharing app",
+    "Bold Hug app",
+    "friend find app",
     "find people for activities",
     "travel buddy app",
     "local events",
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
   
  
   openGraph: {
-    title: "BoldHug – Discover & Share Local Events",
+    title: "BoldHug – Discover and  Share Local Events , Make Friends",
     description:
       "Join fun activities nearby – sports, travel, cooking, or just hangouts. Meet people who vibe with you.",
    
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BoldHug – Share Events, Meet New People",
+    title: "BoldHug – Share Events, Meet New People , Make Friends",
     description:
       "Create or join activities in your city. From sports to travel to food – vibe and connect on BoldHug.",
     images: ["./pre.png"],
