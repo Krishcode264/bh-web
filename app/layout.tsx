@@ -67,7 +67,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-     
+     <head>
+     <meta name="description" content="Bold Hug is your go-to app to create and join real-life events. Whether it's travel, social meetups, or hobbies – find your people and share your moments." />
+     </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
