@@ -72,6 +72,8 @@ export default function RootLayout({
     <html lang="en">
      <head>
      <meta name="description" content="Bold Hug is your go-to app to create and join real-life events. Whether it's travel, social meetups, or hobbies – find your people and share your moments." />
+     <meta name="robots" content="index, follow"/>
+
      <script type="application/ld+json">
           {`
           {
