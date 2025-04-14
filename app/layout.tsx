@@ -74,7 +74,7 @@ export default function RootLayout({
      <meta name="description" content="Bold Hug is your go-to app to create and join real-life events. Whether it's travel, social meetups, or hobbies – find your people and share your moments." />
      <meta name="robots" content="index, follow"/>
 
-     <script type="application/ld+json">
+     {/* <script type="application/ld+json">
           {`
           {
             "@context": "https://schema.org",
@@ -87,7 +87,7 @@ export default function RootLayout({
             "downloadUrl": "https://play.google.com/store/apps/details?id=com.boldhug"
           }
         `}
-        </script>
+        </script> */}
      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
