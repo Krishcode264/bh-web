@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
-import pre from "./pre.png"
+import pre from "./pre.png";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,30 +14,42 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BoldHug –  Find Companions for the Things You Love",
+  title:
+    "BoldHug  (Bold Hug / Bold-Hug App)  –  Find Companions for the Things You Love",
   description:
-    "BoldHug lets you Create personal plans and find real people to enjoy them with. Connect with people for sports, travel, food, and social hangouts.",
+    "BoldHug (also known as Bold Hug or Bold-Hug) app helps you find companions for real-life activities – like sports, travel, food, or social hangouts. Whether you want to make new friends, find a hiking buddy, or join casual meetups nearby – start here.",
   keywords: [
+    "find activity partners",
+    "make friends app",
+    "meet new people nearby",
+    "join group events",
     "event sharing app",
-    "Bold Hug app",
-    "friend find app",
-    "find people for activities",
+    "social meetup app",
+    "activity companion app",
+    "find hobby groups",
     "travel buddy app",
-    "local events",
-    "find friend ",
+    "find people for activities",
+    "friend finder",
+    "local events near me",
     "sports meetups",
-    "social app",
-    "event finder",
+    "event discovery",
     "BoldHug",
-    "find companions , friends for activities app"
+    "Bold Hug",
+    "Bold-Hug",
+    "boldhug app",
+    "bold hug app",
+    "bold-hug app",
+    "boldhug events",
+    "bold hug events",
+    "bold hug social app",
+    "find friends to travel with",
   ],
-  
- 
+
   openGraph: {
     title: "BoldHug – Discover and  Share Local Events , Make Friends",
     description:
       "Join fun activities nearby – sports, travel, cooking, or just hangouts. Meet people who vibe with you.",
-   
+
     siteName: "BoldHug",
     images: [
       {
@@ -62,7 +74,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -70,28 +81,46 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-     <head>
-     <meta name="description" content="Bold Hug is your go-to app to create and join real-life events. Whether it's travel, social meetups, or hobbies – find your people and share your moments." />
-     <meta name="robots" content="index, follow"/>
+      <head>
+        <meta
+          name="description"
+          content="Bold Hug is your go-to app to create and join real-life events. Whether it's travel, social meetups, or hobbies – find your people and share your moments."
+        />
+        <meta name="robots" content="index, follow" />
 
-     {/* <script type="application/ld+json">
-          {`
-          {
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "Bold Hug",
-            "url": "https://web.boldhug.krishcode264.online",
-            "description": "Find companions for events and activities. Meet new people for socializing, biking, traveling, and more!",
-            "applicationCategory": "Social",
-            "operatingSystem": "iOS, Android",
-            "downloadUrl": "https://play.google.com/store/apps/details?id=com.boldhug"
-          }
-        `}
-        </script> */}
-     </head>
+        <script type="application/ld+json">
+  {`
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Bold Hug",
+    "alternateName": ["Bold Hug", "Bold-Hug", "boldhug app", "Bold Hug App", "Friend finding app"],
+    "url": "https://web.boldhug.krishcode264.online",
+    "description": "Find companions for events and activities. Meet new people for socializing, biking, traveling, and more!",
+    "applicationCategory": "Social",
+    "operatingSystem": "iOS, Android",
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.boldhug"
+  }
+  `}
+</script>
+
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <p style={{ display: "none" }}>
+          BoldHug – Also known as Bold Hug, Bold-Hug App, and boldhug app. Find
+          your companion for travel, events, and fun activities.
+        </p>
+        <h1 style={{ display: "none" }}>
+        Find Friends, Join Events, and Connect Over Shared Interests
+        </h1>
+        <p style={{ display: "none" }}>
+          Looking for a travel buddy, someone to play badminton with, or just
+          people to hang out with? BoldHug helps you meet new friends and
+          companions for real-life events and fun group activities. Discover and
+          share local moments with people who vibe with you.
+        </p>
         {children}
       </body>
     </html>
