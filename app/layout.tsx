@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BoldHug – Share Events, Meet New People , Make Friends",
+    title: "BoldHug app – Share Events, Meet New People , Make Friends",
     description:
       "Create or join activities in your city. From sports to travel to food – vibe and connect on BoldHug.",
     images: ["./pre.png"],
