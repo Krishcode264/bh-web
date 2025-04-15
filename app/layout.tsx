@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title:
-    "BoldHug  (Bold Hug / Bold-Hug App)  –  Find Companions for the Things You Love",
+    "BoldHug, Bold Hug, Bold-Hug  –  Find Companions for Activities & Events",
   description:
     "BoldHug (also known as Bold Hug or Bold-Hug) app helps you find companions for real-life activities – like sports, travel, food, or social hangouts. Whether you want to make new friends, find a hiking buddy, or join casual meetups nearby – start here.",
   keywords: [
@@ -80,16 +80,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
       <head>
+        <link rel="canonical" href="https://web.boldhug.krishcode264.online/" />
         <meta
           name="description"
           content="Bold Hug is your go-to app to create and join real-life events. Whether it's travel, social meetups, or hobbies – find your people and share your moments."
         />
-        <meta name="robots" content="index, follow" />
+        <meta name="keywords" content="boldhug, bold hug, bold-hug app, social meetup app, friend finder, travel buddy, hobby groups, find companions nearby" />
 
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="robots" content="index, follow" />
+        <link rel="manifest" href="/manifest.json" />
         <script type="application/ld+json">
-  {`
+          {`
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -102,18 +107,95 @@ export default function RootLayout({
     "downloadUrl": "https://play.google.com/store/apps/details?id=com.boldhug"
   }
   `}
-</script>
+        </script>
 
+        <script type="application/ld+json">
+          {`
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is BoldHug?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BoldHug is a social app that helps you find companions for real-life activities like sports, travel, food, or casual hangouts. It's designed to help you meet like-minded people near you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BoldHug a dating app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, BoldHug is not a dating app. It focuses on friendship and shared experiences, not romantic relationships."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use BoldHug to find people for sports or travel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Whether it’s a hiking buddy, a football partner, or a weekend traveler – BoldHug connects you with people nearby who enjoy the same activities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does BoldHug work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can create or join local activities, explore events near you, and chat with others who want to join. It's a safe, friendly way to meet new people."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who can use BoldHug?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anyone looking to make new friends, join group events, or find fun activity partners can use BoldHug. It’s perfect for both locals and newcomers."
+      }
+    }
+  ]
+}`}
+        </script>
+
+        <script type="application/ld+json">
+          {`{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "BoldHug",
+  "url": "https://web.boldhug.krishcode264.online",
+  "logo": "https://web.boldhug.krishcode264.online/icon2.png",
+  "sameAs": [
+    "https://www.instagram.com/boldhug",
+    "https://www.twitter.com/boldhug",
+    "https://play.google.com/store/apps/details?id=com.boldhug"
+  ]
+}`}
+        </script>
+
+        <script type="application/ld+json">
+          {`{ "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://web.boldhug.krishcode264.online",
+  "name": "BoldHug",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://web.boldhug.krishcode264.online/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+          }
+}`}
+        </script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <p style={{ display: "none" }}>
-          BoldHug – Also known as Bold Hug, Bold-Hug App, and boldhug app. Find
+          BoldHug (boldhug) – Also known as Bold Hug, Bold-Hug App, and boldhug app. Find
           your companion for travel, events, and fun activities.
         </p>
         <h1 style={{ display: "none" }}>
-        Find Friends, Join Events, and Connect Over Shared Interests
+          Find Friends, Join Events, and Connect Over Shared Interests
         </h1>
         <p style={{ display: "none" }}>
           Looking for a travel buddy, someone to play badminton with, or just
