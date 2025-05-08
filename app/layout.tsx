@@ -86,7 +86,7 @@ export default function RootLayout({
           content="Bold Hug is your go-to app to create and join real-life events. Whether it's travel, social meetups, or hobbies – find your people and share your moments."
         />
         <meta name="keywords" content="boldhug, bold hug, bold-hug app, social meetup app, friend finder, travel buddy, hobby groups, find companions nearby" />
-
+        <meta name="google-site-verification" content="7IcqY4aOAe6NCnOzvEaQPkMajGxhkOC8qBV30Zvzvfc" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="robots" content="index, follow" />
