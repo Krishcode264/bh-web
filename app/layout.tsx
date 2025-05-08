@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
-import pre from "./pre.png";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -82,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr">
       <head>
-        <link rel="canonical" href="https://web.boldhug.krishcode264.online/" />
+        <link rel="canonical" href="https://web.boldhug.krishcode264.online" />
         <meta
           name="description"
           content="Bold Hug is your go-to app to create and join real-life events. Whether it's travel, social meetups, or hobbies – find your people and share your moments."
@@ -92,23 +90,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="robots" content="index, follow" />
-        <link rel="manifest" href="/manifest.json" />
-        <script type="application/ld+json">
-          {`
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Bold Hug",
-    "alternateName": ["Bold Hug", "Bold-Hug", "boldhug app", "Bold Hug App", "Friend finding app"],
-    "url": "https://web.boldhug.krishcode264.online",
-    "description": "Find companions for events and activities. Meet new people for socializing, biking, traveling, and more!",
-    "applicationCategory": "Social",
-    "operatingSystem": "iOS, Android",
-    "downloadUrl": "https://play.google.com/store/apps/details?id=com.boldhug"
-  }
-  `}
-        </script>
-
+   
 
 
 
