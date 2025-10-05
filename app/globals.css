@@ -1,2 +1,51 @@
 @import "tailwindcss";
 
+
+
+.love{
+  display: inline-block;
+  transform-origin: top center;
+  animation: hang 8s ease-in-out infinite;
+  position: relative;
+  font-family: 'Dancing Script', cursive !important;
+}
+
+.love::before {
+  content: '';
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 35px;
+  background: linear-gradient(to bottom, #8b5cf6, #ec4899);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.5);
+  z-index: 10;
+}
+
+.love::after {
+  content: '🪝';
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  z-index: 10;
+}
+
+
+@keyframes hang {
+  0%   { transform: rotate(15deg); }
+  50%  { transform: rotate(-15deg); }
+  100% { transform: rotate(15deg); }
+}
+
+
+@media (max-width:550px) {
+  .card{
+    flex:row;
+    background-color: brown;
+  }
+}

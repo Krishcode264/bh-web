@@ -1,94 +1,49 @@
 import Image from "next/image";
-import eventPhoto from "../public/e.png";
-import profilePhoto from "../public/p.png";
-
-import chatPhoto from "../public/up2.png";
-
-import homePhoto from "../public/h.png";
-import playStore from "../public/ps.png";
-import appleStore from "../public/as.png";
 import logo from "../public/ficon.jpg";
 import Link from "next/link";
+import "./globals.css"
+import DownlaodCard from "@/components/DownlaodCard";
+import FeatureShowcase from "@/components/FeatureShowcase";
+import TopNav from "@/components/TopNav";
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-tr from-violet-200 to-violet-400 font-sans">
-      <div className="p-2 sm:absolute  flex items-center justify-center  mx-auto md:top-14 top-5 left-12 rounded-xl bg-violet-200 w-28">
-        <Image className="w-22 h-22 rounded-xl" src={logo} alt="" />
+    <div className="min-h-screen  w-full bg-gradient-to-tr from-violet-200 to-violet-400 font-sans">
+      <div className="absolute top-4 left-4 z-10 p-2 rounded-xl bg-violet-200 w-20 h-20 flex items-center justify-center">
+        <Image className="w-16 h-16 rounded-xl" src={logo} alt="Bold Hug Logo" />
       </div>
-      <div className="max-w-4xl mx-auto px-4 py-12">
+      <TopNav />
+      <div className="max-w-4xl mx-auto px-4 py-12 pt-24">
         <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold space-y-1 text-gray-700 funnel-sans">
-          Find Companions for the Things You Love
-          </h1>
+          
+            <h1 className="text-4xl md:text-5xl font-bold space-y-1 text-gray-700 funnel-sans">
+              Find Companions for the Things You 
+            </h1>
+            <h1 className="mt-4 love text-[5em] md:text-[5rem] font-bold space-y-1 bg-gradient-to-r from-violet-600 via-pink-500 to-violet-800 bg-clip-text text-transparent animate-pulse font-dancing-script">LOVE</h1>
+          
+
           <p className="mt-4 text-xl  text-gray-600 ">
-          Create personal plans and find real people to enjoy them with.
+            Create personal plans and find real people to enjoy them with.
           </p>
         </header>
 
-        <section className="justify-between gap-4 items-center flex flex-col md:flex-row p-4 rounded-3xl  bg-violet-300">
-          <span className="md:w-[50%] ">
-        
-            <p className="mt-4 text-lg text-gray-700 font-semibold" >
+        <section id="download" className="justify-between gap-4  items-center flex flex-col md:flex-row p-4 rounded-3xl  bg-violet-300">
+          <span className=" w-[70%] ">
+            <p className="mt-4 text-lg text-gray-700 font-semibold">
               Bold Hug connects you with people nearby who want to do the same
-              things as you — whether it’s playing a sport, grabbing food, going
+              things as you , whether it’s playing a sport, grabbing food, going
               for a walk, planning a small picnic, or exploring a new place
-              together. These aren’t big public events — they’re personal plans
-              created by people like you. 
-          <br />   Create or join casual activities,
-              share photos, and meet companions for real-life moments — from
-              spontaneous coffee meetups to mini travel plans. Built for
-              connection. Designed for everyday life.
+              together. These aren’t big public events they’re personal plans
+              created by people like you.
+              <br /> Create or join casual activities, share photos, and meet
+              companions for real-life moments from spontaneous coffee meetups
+              to mini travel plans. Built for connection. Designed for everyday
+              life.
             </p>
           </span>
-          <div className=" px-3 py-2 w-[60%] rounded-2xl md:w-[30%]  h-full shadow-xl shadow-violet-400  ">
-            <h2 className=" text-center text-2xl font-semibold mb-4 font-mono text-gray-600">
-              Download Now (Coming soon)
-            </h2>
-            <div className="flex flex-col  md:flex-row   justify-center gap-4">
-              <Link
-                href={""}
-                className=" bg-violet-200  text-white px-6 py-3 rounded-2xl font-medium hover:bg-violet-300 transition"
-              >
-                <Image
-                  className="w-12 h-12 align-middle mx-auto"
-                  src={playStore}
-                  alt=""
-                />
-              </Link>
-              <Link
-                href={""}
-                className="bg-violet-200 text-white px-6 py-3 rounded-2xl  font-medium hover:bg-violet-300 transition"
-              >
-                <Image className="w-12 h-12 mx-auto" src={appleStore} alt="" />
-              </Link>
-            </div>
-          </div>
+          <DownlaodCard />
         </section>
 
-        <section className="mb-12 flex mt-12 ">
-          <div className="  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <Image
-              src={homePhoto}
-              alt="Screenshot 1"
-              className="rounded-xl shadow"
-            />
-            <Image
-              src={eventPhoto}
-              alt="Screenshot 1"
-              className="rounded-xl shadow"
-            />
-            <Image
-              src={profilePhoto}
-              alt="Screenshot 2"
-              className="rounded-xl shadow"
-            />
-            <Image
-              src={chatPhoto}
-              alt="Screenshot 3"
-              className="rounded-xl shadow"
-            />
-          </div>
-        </section>
+        <FeatureShowcase />
 
         {/* FOOTER */}
         <footer className="text-center text-sm text-gray-600 mt-12">
