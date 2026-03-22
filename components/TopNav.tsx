@@ -1,33 +1,29 @@
 import Link from "next/link";
 import React from "react";
+import WaitlistButton from "./WaitlistButton";
 
 const TopNav = () => {
   return (
-    <nav className="fixed top-2 right-2 sm:top-4 sm:right-4 z-20 w-auto">
-      <div className="bg-violet-200/15 backdrop-blur-md rounded-2xl shadow-sm border border-violet-300/20 px-3 py-3 sm:px-6 sm:py-4">
-        <div className="flex items-center justify-between">
-          <Link 
-            href="/" 
-            className="text-sm sm:text-lg font-semibold text-violet-600 hover:text-violet-800 transition-colors"
-          >
-            BoldHug
-          </Link>
-          
-          <div className="flex items-center gap-2 sm:gap-6">
-            <Link 
-              href="/activities" 
-              className="text-violet-700 hover:text-violet-900 font-semibold transition-colors hover:bg-violet-100/30 px-2 py-1 rounded-lg text-sm sm:text-base"
-            >
-              Activities
-            </Link>
-            <Link 
-              href="#download" 
-              className="bg-gradient-to-r from-violet-400/70 to-pink-400/70 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-xl font-medium hover:shadow-md transition-all duration-200 hover:scale-105 border border-violet-300/30 text-xs sm:text-sm"
-            >
-              Download
-            </Link>
-          </div>
+    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm font-headline antialiased">
+      <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+        <Link 
+          href="/" 
+          className="flex items-center gap-2 group transition-all duration-200"
+        >
+          <img src="/applogo.png" alt="Rallyo Logo" className="w-8 h-8 object-contain group-hover:rotate-12 transition-transform" />
+          <span className="text-2xl font-black tracking-tighter text-violet-700 dark:text-violet-400">Rallyo</span>
+        </Link>
+        
+        <div className="hidden md:flex gap-8 items-center">
+          <Link href="/#features" className="text-violet-700 font-bold border-b-2 border-violet-500 transition-all">Features</Link>
+          <Link href="/#how-it-works" className="text-zinc-600 hover:text-violet-600 transition-colors hover:scale-[1.05] transition-transform duration-200">How It Works</Link>
         </div>
+        
+        <WaitlistButton 
+          className="bg-brand-gradient text-on-primary px-6 py-2.5 rounded-lg font-bold hover:scale-[1.05] active:scale-[0.95] transition-all shadow-lg shadow-primary/20"
+        >
+          Join Waitlist
+        </WaitlistButton>
       </div>
     </nav>
   );

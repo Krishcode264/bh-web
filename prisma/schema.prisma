@@ -1,0 +1,310 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "windows", "debian-openssl-3.0.x","debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // directUrl = env("DIRECT_URL")
+}
+
+enum UserRole {
+  user
+  admin
+}
+
+enum ApproveStatus {
+  pending
+  approved
+  rejected
+}
+
+enum AuthProvider {
+  email
+  google
+  facebook
+  phoneNumber
+}
+
+enum AttachmentMediaType {
+  image
+  video
+  file
+}
+
+enum ParentType {
+  message
+  post
+  event
+  profile_photo
+}
+
+enum ConvoType {
+  group
+  private
+}
+
+enum WhoCanMessage {
+  friends
+  anyone
+  none
+  contacts
+}
+
+enum RequestStatus {
+  pending
+  accepted
+  rejected
+  blocked
+}
+
+enum CallStatus {
+  initiated
+  missed
+  rejected
+  ended
+  busy
+}
+
+enum CallType {
+  audio
+  video
+}
+
+model User {
+  id               String             @id @default(uuid()) @db.Uuid
+  userName         String?            @unique
+  name             String?
+  age              Int?
+  gender           String?
+  email            String?            @unique
+  intrests         String[]
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  role             UserRole           @default(user)
+  mobileNo         String?            @unique
+  profilePhoto     Attachment?        @relation(fields: [profilePhotoId], references: [id])
+  profilePhotoId   String?            @unique @db.Uuid // Explicit foreign key
+  Event            Event[]
+  EventAdmin       EventAdmin[]
+  ConvoParticipant ConvoParticipant[]
+  Setting          Setting?
+  EventParticipant EventParticipant[]
+  Message          Message[]
+  Comment          Comment[]
+  EventPost        EventPost[]
+
+  //friends 
+  friends         User[] @relation("UserFriends")
+  friendsRelation User[] @relation("UserFriends")
+
+  // Friend Request Relations
+  sentFriendRequests     FriendRequest[] @relation("SentRequests")
+  receivedFriendRequests FriendRequest[] @relation("ReceivedRequests")
+
+  likes Like[]
+
+  callsMade     Call[] @relation("CallerRelation")
+  callsReceived Call[] @relation("ReceiverRelation")
+}
+
+model FriendRequest {
+  id String @id @default(uuid()) @db.Uuid
+
+  // Sender Details
+  senderId String @db.Uuid
+  sender   User   @relation("SentRequests", fields: [senderId], references: [id])
+
+  // Receiver Details
+  receiverId String @db.Uuid
+  receiver   User   @relation("ReceivedRequests", fields: [receiverId], references: [id])
+
+  // Request Status
+  status RequestStatus @default(pending)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Event {
+  id            String             @id @default(uuid()) @db.Uuid
+  createdBy     String             @db.Uuid
+  title         String
+  description   String
+  slots         Int
+  reservedSlots Int?
+  location      String
+  coords        String?
+  latitude      Float?           
+  longitude     Float?    
+  isCompleted   Boolean       @default(false)    
+  locate        Unsupported("geography(Point,4326)")? @map("locate")       
+  date          DateTime
+  time          String
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+  creator       User               @relation(fields: [createdBy], references: [id])
+  eventAdmins   EventAdmin[]
+  participants  EventParticipant[]
+  eventPosts    EventPost[]
+  convo         Convo?             @relation(fields: [convoId], references: [id])
+  convoId       String?            @unique @db.Uuid
+  attachments   Attachment[]
+}
+
+model EventAdmin {
+  eventId String @db.Uuid
+  userId  String @db.Uuid
+  event   Event  @relation(fields: [eventId], references: [id])
+  user    User   @relation(fields: [userId], references: [id])
+
+  @@id([eventId, userId])
+}
+
+model EventParticipant {
+  userId          String        @db.Uuid
+  eventId         String        @db.Uuid
+  approveStatus   ApproveStatus
+  statusUpdatedAt DateTime      @default(now())
+  user            User          @relation(fields: [userId], references: [id])
+  event           Event         @relation(fields: [eventId], references: [id])
+
+  @@id([userId, eventId])
+}
+
+model Message {
+  id          String       @id @default(uuid()) @db.Uuid
+  content     String
+  senderId    String       @db.Uuid
+  convoId     String       @db.Uuid
+  repliedTo   String?      @map("repliedtoId") @db.Uuid
+  readStatus  Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt()
+  sender      User         @relation(fields: [senderId], references: [id])
+  convo       Convo        @relation(fields: [convoId], references: [id])
+  replyTo     Message?     @relation("MessageThread", fields: [repliedTo], references: [id])
+  attachments Attachment[]
+  replies     Message[]    @relation("MessageThread")
+}
+
+model Attachment {
+  id          String              @id @default(uuid()) @db.Uuid
+  type        AttachmentMediaType
+  url         String
+  format      String?
+  fileSize    BigInt?
+  key         String
+  parentType  ParentType
+  order       Int?
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+  expiresAt   DateTime
+  Message     Message?            @relation(fields: [messageId], references: [id])
+  messageId   String?             @db.Uuid
+  Event       Event?              @relation(fields: [eventId], references: [id])
+  eventId     String?             @db.Uuid
+  EventPost   EventPost?          @relation(fields: [eventPostId], references: [id])
+  eventPostId String?             @db.Uuid
+  User        User?
+  userId      String?             @unique
+}
+
+model Like {
+  id     String @id @default(uuid()) @db.Uuid
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @db.Uuid
+
+  post   EventPost @relation(fields: [postId], references: [id])
+  postId String    @db.Uuid
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
+}
+
+model EventPost {
+  id         String       @id @default(uuid()) @db.Uuid
+  title      String
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  likes      Int          @default(0)
+  comments   Comment[]
+  Event      Event?       @relation(fields: [eventId], references: [id])
+  eventId    String?      @db.Uuid
+  attachment Attachment[]
+  createdBy  String       @db.Uuid
+  author     User         @relation(fields: [createdBy], references: [id])
+  likedBy    Like[]
+}
+
+model Comment {
+  id          String    @id @default(uuid()) @db.Uuid
+  content     String
+  eventPostId String    @db.Uuid
+  createdAt   DateTime  @default(now())
+  userId      String    @db.Uuid
+  eventPost   EventPost @relation(fields: [eventPostId], references: [id])
+  user        User      @relation(fields: [userId], references: [id])
+}
+
+model Convo {
+  id           String             @id @default(uuid()) @db.Uuid
+  memberCount  Int?
+  key          String             @unique
+  eventId      String?            @db.Uuid
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+  convoType    ConvoType
+  Event        Event?             @relation()
+  Message      Message[]
+  participants ConvoParticipant[]
+  calls        Call[]
+}
+
+model ConvoParticipant {
+  convoId  String   @db.Uuid
+  userId   String   @db.Uuid
+  joinedAt DateTime @default(now())
+
+  convo Convo @relation(fields: [convoId], references: [id])
+  user  User  @relation(fields: [userId], references: [id])
+
+  @@id([convoId, userId])
+}
+
+model Setting {
+  userId             String        @id @db.Uuid
+  inAppNotification  Boolean       @default(true)
+  emailNotifications Boolean       @default(true)
+  whoCanMessage      WhoCanMessage @default(anyone)
+  notifyToken        String?       
+  user User @relation(fields: [userId], references: [id])
+}
+model Call {
+  id          String     @id @default(uuid()) @db.Uuid
+  convoId     String?    @db.Uuid
+  callerId    String     @db.Uuid
+  receiverId  String     @db.Uuid
+  type        CallType
+  status      CallStatus @default(initiated)
+  duration    Int?       // in seconds
+  startedAt   DateTime?
+  endedAt     DateTime?
+  createdAt   DateTime   @default(now())
+
+  caller      User       @relation("CallerRelation", fields: [callerId], references: [id])
+  receiver    User       @relation("ReceiverRelation", fields: [receiverId], references: [id])
+  convo       Convo?     @relation(fields: [convoId], references: [id])
+}
+
+model Waitlist {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  email     String   @unique
+  city      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

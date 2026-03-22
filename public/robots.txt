@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://web.boldhug.krishcode264.online
+Host: https://web.rallyo.online
 
 # Sitemaps
-Sitemap: https://web.boldhug.krishcode264.online/sitemap.xml
+Sitemap: https://web.rallyo.online/sitemap.xml

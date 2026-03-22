@@ -49,7 +49,7 @@ const FeatureShowcase = () => {
             Everything You Need
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover all the features that make BoldHug the perfect platform for connecting with like-minded people
+            Discover all the features that make Rallyo the perfect platform for connecting with like-minded people
           </p>
         </div>
 

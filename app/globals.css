@@ -49,3 +49,84 @@
     background-color: brown;
   }
 }
+
+@theme {
+  --color-on-tertiary-fixed-variant: #533e69;
+  --color-inverse-primary: #d2bbff;
+  --color-on-error: #ffffff;
+  --color-secondary-fixed-dim: #eeb8c9;
+  --color-secondary-container: #fac3d4;
+  --color-on-surface-variant: #4a4455;
+  --color-on-background: #280056;
+  --color-on-secondary-fixed-variant: #633b49;
+  --color-inverse-surface: #3e1d6d;
+  --color-on-primary-container: #ede0ff;
+  --color-surface-dim: #e6d2ff;
+  --color-on-secondary-container: #784d5c;
+  --color-on-tertiary: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-surface-container-low: #faf0ff;
+  --color-outline-variant: #ccc3d8;
+  --color-primary-container: #7c3aed;
+  --color-error: #ba1a1a;
+  --color-on-tertiary-container: #f1dfff;
+  --color-tertiary-fixed: #efdbff;
+  --color-surface-bright: #fef7ff;
+  --color-background: #fef7ff;
+  --color-tertiary-fixed-dim: #d7bcf0;
+  --color-on-secondary: #ffffff;
+  --color-surface: #fef7ff;
+  --color-primary-fixed-dim: #d2bbff;
+  --color-outline: #7b7487;
+  --color-inverse-on-surface: #f8edff;
+  --color-primary: #630ed4;
+  --color-surface-tint: #732ee4;
+  --color-error-container: #ffdad6;
+  --color-tertiary: #5b4571;
+  --color-on-tertiary-fixed: #25113b;
+  --color-on-primary-fixed-variant: #5a00c6;
+  --color-secondary-fixed: #ffd9e3;
+  --color-secondary: #7d5261;
+  --color-surface-container-high: #f1e3ff;
+  --color-on-secondary-fixed: #31111d;
+  --color-surface-container-highest: #ecdcff;
+  --color-tertiary-container: #745d8b;
+  --color-surface-variant: #ecdcff;
+  --color-on-surface: #280056;
+  --color-on-primary-fixed: #25005a;
+  --color-on-primary: #ffffff;
+  --color-primary-fixed: #eaddff;
+  --color-surface-container: #f5eaff;
+  --color-surface-container-lowest: #ffffff;
+
+  --font-headline: var(--font-plus-jakarta-sans), sans-serif;
+  --font-body: var(--font-plus-jakarta-sans), sans-serif;
+  --font-label: var(--font-plus-jakarta-sans), sans-serif;
+  --font-script: var(--font-dancing-script), cursive;
+  
+  --radius-DEFAULT: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-full: 9999px;
+}
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, #630ed4 0%, #7c3aed 50%, #fac3d4 100%);
+  }
+  .bg-waitlist-gradient {
+    background: linear-gradient(90deg, #7c3aed 0%, #ec4899 100%);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #630ed4 0%, #7c3aed 50%, #7d5261 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .glass-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}

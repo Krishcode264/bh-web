@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://web.boldhug.krishcode264.online',
+  siteUrl: 'https://web.rallyo.online',
   generateRobotsTxt: true,
   transform: async (config, path) => {
     return {
