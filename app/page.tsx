@@ -163,7 +163,7 @@ export default function Home() {
             <div className="rounded-xl overflow-hidden shadow-2xl relative pt-[125%] sm:pt-[100%]">
               <img className="absolute top-0 left-0 w-full h-full object-cover" alt="A diverse group of friends laughing together in a sunlit city street" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_a1cWQn-xe2R_0FXf3FTx2cPORkS1nOfCS86XK6C6u1DPjZoeOzS9HZ76v6fxk6ofPU-_yyl5mDxcasCQke5Y7x-T1GIQTJEHs_ofpYIEF14cfiJcJ5rrbPnxlcZOtN8gU2dpHaWPsPWD5dREtQvDH0DVQO8DOMQxAD8wRMNtA5AV2YWLGoQhEaFb5udSCiYJzIjnovAUCnsdwhc2ng6eyPF3tlBQMsX-_R_TpjvvUJHhfI_61NPq69u8x9tF21SmqHTD--7Flbk"/>
             </div>
-            <div className="absolute -bottom-10 -right-4 lg:bottom-10 lg:-right-20 bg-brand-gradient p-8 rounded-lg shadow-2xl max-w-sm text-on-primary">
+            <div className="relative mt-[-3rem] mx-auto lg:absolute lg:bottom-10 lg:-right-20 lg:mt-0 lg:mx-0 bg-brand-gradient p-8 rounded-[2rem] shadow-2xl max-w-[90%] lg:max-w-sm text-on-primary z-20">
               <span className="material-symbols-outlined text-4xl mb-4 opacity-80">format_quote</span>
               <p className="text-xl font-bold leading-snug mb-4">"I found a regular tennis partner and two new best friends in my first week. It just feels... natural."</p>
               <p className="font-bold opacity-80">— Jordan, Lower East Side</p>
