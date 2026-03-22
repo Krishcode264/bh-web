@@ -1,15 +1,18 @@
 {
-    "name": "Bold Hug",
-    "short_name": "BoldHug",
-    "description": "Find companions for sports, travel, hangouts.",
+    "name": "Rallyo",
+    "short_name": "Rallyo",
+    "description": "Find companions for sports, travel, activities and events.",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#000000",
+    "theme_color": "#ffffff",
+    "links": {
+      "canonical": "https://web.rallyo.online"
+    },
     "icons": [
       {
-        "src": "/icon2.png",
-        "sizes": "192x192",
+        "src": "/applogo.png",
+        "sizes": "512x512",
         "type": "image/png"
       }
     ]
